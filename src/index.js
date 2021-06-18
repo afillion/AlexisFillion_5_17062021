@@ -19,10 +19,19 @@ function showContent(article) {
   //afin qu'il puisse être inséré dans le document actuel.
   const clone = document.importNode(template_element.content, true);
 
-  clone.getElementById("article__title").textContent = article.name;
-  clone.getElementById("article__txt").textContent = article.description;
-  clone.getElementById("article__price").textContent = article.price;
-  clone.getElementById("article__img").setAttribute("src", article.imageUrl);
+  clone.getElementById("articleTitle").textContent = article.name;
+  clone.getElementById("articleTxt").textContent = article.description;
+  clone.getElementById("articlePrice").textContent = article.price;
+  clone.getElementById("articleImg").setAttribute("src", article.imageUrl);
+  const href = clone.getElementById("articleId");
+  href.addEventListener('click', function(){
+    const articleUrl = getArticleUrl(article._id);
+    href.setAttribute("href", articleUrl);
+  });
 
   document.getElementById("list").appendChild(clone);
+}
+
+function getArticleUrl(id) {
+  return "product.html?id=" + id;
 }

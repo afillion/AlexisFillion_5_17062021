@@ -27,18 +27,33 @@
     <section>
       <h2>Liste des Peluches disponibles</h2>
       <ul class="list" id="list"></ul>
-      <template id="templateArticle">
-        <li>
-          <article class="article">
-            <h3 class="article__title" id="article__title"></h3>
-            <p class="article__txt" id="article__txt"></p>
-            <img src="" alt="" class="" id="article__img">
-            <p class="article__price" id="article__price"></p>
-          </article>
-        </li>
-      </template>
     </section>
   </div>
+
+  <footer></footer>
+  
+  <template id="templateArticle">
+    <li>
+      <article class="article">
+        <figure>
+          <a href="" id="articleId">
+            <div>
+              <img src="" alt="" id="articleImg">
+            </div>
+          </a>
+          <figcaption>
+            <div>
+              <h3 id="articleTitle"></h3>
+              <p id="articleTxt"></p>
+            </div>
+            <div>
+              <p id="articlePrice"></p>
+            </div>
+          </figcaption>
+        </figure>
+      </article>
+    </li>
+  </template>
   <script src="/polyfill.bundle.js"></script>
   <script src="/app.bundle.js"></script>
 </body>
