@@ -1,6 +1,21 @@
+//modification de la fonction initiale pour utiliser .then() et .catch()
+//Objectif = pouvoir attraper l'erreur et en etre alerter si il y en a une
 export default async function retrieveContent() {
-  const url = "https://baconipsum.com/api/?type=all-meat&paras=2&start-with-lorem=1";
+  const url = "http://localhost:3000/api/teddies";
 
-  const response = await fetch(url);
-  return response.json();
+  return fetch(url).then(
+    function (response) {
+      return response.json()
+    }
+  )
+  .then(
+    function (articles) {
+      return articles
+    }
+  )
+  .catch(
+    function(err) {
+      alert(err)
+    }
+  )
 }
