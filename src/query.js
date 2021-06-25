@@ -22,9 +22,6 @@ export default async function retrieveContent() {
 }
 
 export async function query_item(id) {
-  console.log("entry of query_item()");
-  console.log("http://localhost:3000/api/teddies/" + id);
-  alert("test");
   return fetch("http://localhost:3000/api/teddies/" + id, {method:"GET"}).then(
     function (response) {
       return response.json();
@@ -32,7 +29,6 @@ export async function query_item(id) {
   )
   .then(
     function (item) {
-      console.log(item);
       return item
     }
   )

@@ -1,15 +1,25 @@
 import retrieveContent from './query.js';
+import { storageAvailable } from './store.js';
 
 //anonymous main function. () at the end is the call of this function.
 //aim to take return of retrieveContent() and call functions to display data get by retrieveContent()
 (async function() {
+  if (storageAvailable('localStorage')) {
+    // Nous pouvons utiliser localStorage
+    console.log("localStorage OK");
+    const storage = window.localStorage;
+    console.log(storage);
+  }
+  else {
+    // Malheureusement, localStorage n'est pas disponible
+    alert("localStorage KO");
+  }
   const articles = await retrieveContent()
   console.log(articles);
   for (const article of articles) {
     showContent(article);
   }
 })()
-
 
 function showContent(article) {
   //L'élément HTML <template> (ou Template Content ou modèle de contenu) est un mécanisme utilisé pour stocker du contenu HTML (côté client)
@@ -21,7 +31,7 @@ function showContent(article) {
 
   clone.getElementById("articleTitle").textContent = article.name;
   clone.getElementById("articleTxt").textContent = article.description;
-  clone.getElementById("articlePrice").textContent = article.price;
+  clone.getElementById("articlePrice").textContent = article.price / 100 +".00";
   clone.getElementById("articleImg").setAttribute("src", article.imageUrl);
   const href = clone.getElementById("articleId");
   href.addEventListener('click', function(){
