@@ -33,8 +33,18 @@ function display(item) {
   }
   const btn = document.getElementById("addCartBtn");
   btn.addEventListener("click", function(){
-    if (!window.localStorage.getItem(item._id)) {
-      window.localStorage.setItem(item._id, JSON.stringify(item));
+    console.log(select.value);
+    if (window.localStorage.getItem((item._id + "_" + select.value))) {
+      console.log('if');
+      item['quantity']++;
+      window.localStorage.setItem((item._id + "_" + select.value), JSON.stringify(item));
     }
+    else {
+      console.log('else');
+      item['quantity'] = 1;
+      window.localStorage.setItem((item._id + "_" + select.value), JSON.stringify(item));
+    }
+    console.log(item);
+    console.log(window.localStorage);
   });
 }
