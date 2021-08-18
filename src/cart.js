@@ -1,3 +1,5 @@
+import { send_item } from './query.js';
+
 (function() {
   const tbody = document.getElementById("tabBody");
   const store_tab = Object.values(window.localStorage);
@@ -14,6 +16,7 @@
     const td_price = document.createElement("td");
     td_price.innerText = el.price / 100 + ".00";
     row.appendChild(td_price);
+    document.getElementById('form').addEventListener('submit', send_item);
     formListener();
   }
 })()

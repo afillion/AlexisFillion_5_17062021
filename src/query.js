@@ -36,3 +36,9 @@ export async function query_item(id) {
     err => {alert(err)}
   )
 }
+
+export async function send_item(e) { 
+  e.preventDefault();
+  console.log("form action");
+  console.log(e);
+}

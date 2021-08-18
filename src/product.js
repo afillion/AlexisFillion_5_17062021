@@ -29,22 +29,21 @@ function display(item) {
     const option = document.createElement("option");
     option.setAttribute("value", item.colors[i]);
     option.innerText = item.colors[i];
+    if (i == 0) { option.setAttribute("selected", ""); }
     select.appendChild(option);
   }
   const btn = document.getElementById("addCartBtn");
   btn.addEventListener("click", function(){
     console.log(select.value);
-    if (window.localStorage.getItem((item._id + "_" + select.value))) {
-      console.log('if');
-      item['quantity']++;
-      window.localStorage.setItem((item._id + "_" + select.value), JSON.stringify(item));
+    if (!window.localStorage.getItem(item._id)) {
+      window.localStorage.setItem(item._id, JSON.stringify(item));
     }
     else {
-      console.log('else');
-      item['quantity'] = 1;
-      window.localStorage.setItem((item._id + "_" + select.value), JSON.stringify(item));
+      window.localStorage.setItem(item._id, JSON.stringify(item));
     }
-    console.log(item);
     console.log(window.localStorage);
+    for (let i = 0; i < Object.keys(window.localStorage).length; i++) {
+      console.log(window.localStorage[Object.keys(window.localStorage)[i]]);
+    }
   });
 }

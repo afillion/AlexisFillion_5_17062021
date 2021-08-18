@@ -36,15 +36,15 @@
         </table>
       </section>
       <section id="form">
-        <form action="" method="POST">
+        <form id="form">
           <div>
             <label for="firstname" class="label">Prénom</label>
-            <input type="text" name="firstname" id="firstname" class="input" required />
+            <input type="text" name="firstname" id="firstname" class="input" pattern="[A-Za-z]{2,}" required />
             <p class="validation_msg" id="firstname_msg"></p>
           </div>
           <div>
             <label for="lastname" class="label">Nom</label>
-            <input type="text" name="lastname" id="lastname" class="input" required />
+            <input type="text" name="lastname" id="lastname" class="input" pattern="[A-Za-z]{2,}" required />
             <p class="validation_msg" id="lastname_msg"></p>
           </div>
           <div>
@@ -64,7 +64,7 @@
           </div>
           <div>
             <label for="city" class="label">Ville</label>
-            <input type="text" name="city" id="city" class="input" required />
+            <input type="text" name="city" id="city" class="input" pattern="[A-Za-z-' *']{3,}" required />
             <p class="validation_msg" id="city_msg"></p>
           </div>
           <button type="submit" id="form-btn">Validez votre commande</button>
