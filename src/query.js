@@ -55,7 +55,7 @@ export async function send_item(order) {
           total_price += el;
         });
         window.localStorage.clear();
-        window.location.href = `${window.location.origin}/order.html?orderId=${json.orderId}&totalPrice=${total_price}.00€`;
+        window.location.href = `${window.location.origin}/order.html?orderId=${json.orderId}&totalPrice=${total_price}`;
       }
     )
     .catch(

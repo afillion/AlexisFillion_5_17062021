@@ -1,29 +1,33 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Article - Orinoco</title>
-  </head>
-  <body>
-    <header>
-      <div class="logo"></div>
-      <nav class="">
-        <ul>
-          <li>
-            <a href="index.html">Accueil</a>
-          </li>
-          <li>
-            <a href="cart.html">Panier</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    
-    <div class="main" id="main">
-      <h1>Orinoco</h1>
-      <section>
-        <h2 id="itemPageTitle">Vous avez selectionnez la peluche : </h2>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <title>Article - Orinoco</title>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <a href="index.html"><img src="./src/images/orinoco_logo.png" alt="logo du site Orinoco"></a>
+    </div>
+    <nav class="">
+      <ul>
+        <li>
+          <a href="index.html">Accueil</a>
+        </li>
+        <li>
+          <a href="cart.html">Panier</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="main" id="main">
+    <h1 class="main__title">Orinoco</h1>
+    <section id="product">
+      <h2 id="itemPageTitle">Vous avez selectionnez la peluche : </h2>
+      <div class="product_wrapper">
         <article>
           <div>
             <h3 id="itemTitle"></h3>
@@ -53,10 +57,11 @@
         </aside>
       </section>
     </div>
+  </div>
+  
+  <footer>
     
-    <footer>
-
-    </footer>
-    <script type="module" src="./src/product.js"></script>
-  </body>
+  </footer>
+  <script type="module" src="./src/product.js"></script>
+</body>
 </html>

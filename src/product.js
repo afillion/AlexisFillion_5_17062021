@@ -17,7 +17,7 @@ function display(item) {
   document.getElementById("itemPageTitle").textContent += item.name;
   document.getElementById("itemTitle").textContent = item.name;
   document.getElementById("itemTxt").textContent = item.description;
-  document.getElementById("itemPrice").textContent = item.price / 100 + ".00";
+  document.getElementById("itemPrice").textContent = item.price / 100 + ".00€";
   document.getElementById("itemImg").setAttribute("src", item.imageUrl);
   const href = document.getElementById("itemId");
   href.addEventListener("click", function(){

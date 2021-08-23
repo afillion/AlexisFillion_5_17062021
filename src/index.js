@@ -31,7 +31,7 @@ function showContent(article) {
 
   clone.getElementById("articleTitle").textContent = article.name;
   clone.getElementById("articleTxt").textContent = article.description;
-  clone.getElementById("articlePrice").textContent = article.price / 100 +".00";
+  clone.getElementById("articlePrice").textContent = article.price / 100 +".00€";
   clone.getElementById("articleImg").setAttribute("src", article.imageUrl);
   const href = clone.getElementById("articleId");
   href.addEventListener('click', function(){

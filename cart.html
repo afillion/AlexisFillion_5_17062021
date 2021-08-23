@@ -3,11 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <title>Panier - Orinoco</title>
   </head>
   <body>
-    <header>
-      <div class="logo"></div>
+    <header class="header">
+      <div class="logo">
+        <a href="index.html"><img src="./src/images/orinoco_logo.png" alt="logo du site Orinoco"></a>
+      </div>
       <nav class="">
         <ul>
           <li>
@@ -21,19 +24,19 @@
     </header>
 
     <div id="main">
-      <h1>Recapitulatif de vos articles</h1>
+      <h1 class="main__title">Recapitulatif de vos articles</h1>
       <section id="cartList">
         <table>
           <thead>
               <tr>
                 <th>Produits</th>
-                <th>Quantite</th>
                 <th>Prix</th>
               </tr>
           </thead>
           <tbody id="tabBody">
           </tbody>
         </table>
+        <p id="total">Total : </p>
       </section>
       <section id="form">
         <form id="form">

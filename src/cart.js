@@ -3,6 +3,7 @@ import { send_item } from './query.js';
 (function() {
   const tbody = document.getElementById("tabBody");
   const store_tab = Object.values(window.localStorage);
+  let total_price = 0;
   for (let i = 0; i < store_tab.length; i++) {
     const row = document.createElement("tr");
     const el = JSON.parse(store_tab[i]);
@@ -10,13 +11,12 @@ import { send_item } from './query.js';
     const td_name = document.createElement("td");
     td_name.textContent = el.name;
     row.appendChild(td_name);
-    const td_quantity = document.createElement("td");
-    td_quantity.textContent = 1;
-    row.appendChild(td_quantity);
     const td_price = document.createElement("td");
-    td_price.textContent = el.price / 100 + ".00";
+    td_price.textContent = el.price / 100 + ".00€";
     row.appendChild(td_price);
+    total_price += el.price;
   }
+  document.getElementById("total").textContent = "Prix total : " + total_price / 100 + ".00€";
   formListener();
   document.getElementById('form').addEventListener('submit', verify_userInput);
 })()
@@ -26,7 +26,7 @@ function verify_userInput(e) {
   console.log("verify_userInput");
   let alpha_regex = /^[A-Za-z]+$/;
   let email_regex = /[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})/;
-  let adress_regex = /^[0-9]*[A-Za-z\s]+$/;
+  let adress_regex = /^[0-9]+[A-Za-z\s]+$/;
   let zipcode_regex = /^[0-9]{5}$/;
   if (
     validator(document.getElementById('firstname').value, alpha_regex) &&
@@ -118,7 +118,7 @@ function formListener() {
   var adress = document.getElementById('adress');
   adress.addEventListener('change', function(e) {
     console.log(adress);
-    let regex = /^[0-9]*[A-Za-z\s]+$/;
+    let regex = /^[0-9]+[A-Za-z\s]+$/;
     let value = e.target.value;
     let msg = document.getElementById("adress_msg");
     if (regex.test(e.target.value)) {
@@ -130,7 +130,7 @@ function formListener() {
       console.log(false);
       adress.setAttribute("style", "border: 1px solid red");
       msg.setAttribute("style", "color: red");
-      msg.textContent = "Veuillez utiliser uniquement des caratères alphabétique";
+      msg.textContent = "example: 1 Avenue Pascal";
     }
   });
   var zipcode = document.getElementById('zipcode');
