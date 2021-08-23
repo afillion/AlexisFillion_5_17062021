@@ -48,8 +48,17 @@ export async function send_item(order) {
     .then(
       (json) => {
         console.log(json);
+        console.log(Object.values(window.localStorage));
+        let total = Object.values(window.localStorage).map((el) => {return JSON.parse(el)}).map((product) => {return product.price / 100});
+        let total_price = 0;
+        total.forEach(el => {
+          total_price += el;
+        });
         window.localStorage.clear();
-        window.location.href = `${window.location.origin}/order.html?orderId=${json.orderId}`;
+        window.location.href = `${window.location.origin}/order.html?orderId=${json.orderId}&totalPrice=${total_price}.00€`;
       }
+    )
+    .catch(
+      err => {alert(err)}
     )
 }

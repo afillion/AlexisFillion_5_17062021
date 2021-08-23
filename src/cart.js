@@ -26,8 +26,8 @@ function verify_userInput(e) {
   console.log("verify_userInput");
   let alpha_regex = /^[A-Za-z]+$/;
   let email_regex = /[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})/;
-  let adress_regex = /^[A-Za-z0-9\s]+$/;
-  let zipcode_regex = /^[0-9]{5}/;
+  let adress_regex = /^[0-9]*[A-Za-z\s]+$/;
+  let zipcode_regex = /^[0-9]{5}$/;
   if (
     validator(document.getElementById('firstname').value, alpha_regex) &&
     validator(document.getElementById('lastname').value, alpha_regex) &&
@@ -118,7 +118,7 @@ function formListener() {
   var adress = document.getElementById('adress');
   adress.addEventListener('change', function(e) {
     console.log(adress);
-    let regex = /^[A-Za-z0-9\s]+$/;
+    let regex = /^[0-9]*[A-Za-z\s]+$/;
     let value = e.target.value;
     let msg = document.getElementById("adress_msg");
     if (regex.test(e.target.value)) {
@@ -136,7 +136,7 @@ function formListener() {
   var zipcode = document.getElementById('zipcode');
   zipcode.addEventListener('change', function(e) {
     console.log(zipcode);
-    let regex = /^[0-9]{5}/;
+    let regex = /^[0-9]{5}$/;
     let value = e.target.value;
     let msg = document.getElementById("zipcode_msg");
     if (regex.test(e.target.value)) {
