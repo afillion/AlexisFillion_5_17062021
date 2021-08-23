@@ -18,7 +18,6 @@ import { storageAvailable } from './store.js';
   console.log(articles);
   for (const article of articles) {
     showContent(article);
-    window.localStorage.clear();
   }
 })()
 

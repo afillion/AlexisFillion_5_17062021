@@ -37,8 +37,19 @@ export async function query_item(id) {
   )
 }
 
-export async function send_item(e) { 
-  e.preventDefault();
-  console.log("form action");
-  console.log(e);
+export async function send_item(order) { 
+  console.log("send_item");
+
+  return fetch("http://localhost:3000/api/teddies/order", 
+    {method:"POST", body:JSON.stringify(order), headers: {'Content-Type': 'application/json; charset=utf-8'}})
+    .then(
+      (response) => response.json()
+    )
+    .then(
+      (json) => {
+        console.log(json);
+        window.localStorage.clear();
+        window.location.href = `${window.location.origin}/order.html?orderId=${json.orderId}`;
+      }
+    )
 }
