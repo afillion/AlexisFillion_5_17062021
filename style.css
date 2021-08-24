@@ -48,7 +48,7 @@ a {
 }
 
 .main__title {
-  color: #ffd6f7;
+  color: #a868b6;
   text-align: center;
 }
 
@@ -58,7 +58,7 @@ a {
 
 #articleImg {
   width: 100%;
-  border-radius: 1rem;
+  border-radius: 1rem 1rem 0 0;
 }
 
 #list {
@@ -76,6 +76,14 @@ a {
 
 #list li:hover {
   transform: scale(1.1);
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  padding: 0 1rem;
 }
 
 section {
