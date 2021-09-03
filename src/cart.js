@@ -16,6 +16,10 @@ import { send_item } from './query.js';
     row.appendChild(td_price);
     total_price += el.price;
   }
+  document.getElementById("clearCart").addEventListener('click', () => {
+    window.localStorage.clear();
+    window.location.reload();
+  });
   document.getElementById("total").textContent = "Prix total : " + total_price / 100 + ".00€";
   formListener();
   document.getElementById('form').addEventListener('submit', verify_userInput);
