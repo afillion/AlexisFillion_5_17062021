@@ -18,8 +18,6 @@ Ctrl + clic on line "Project is running at http://localhost:XXXX" (basic port is
 5) Clone orinoco's backend : `git clone https://github.com/OpenClassrooms-Student-Center/JWDP5.git backendorinoco && cd backendorinoco`
 
 6) Follow README.md instructions of backend project : 
-  -In project folder run `npm install`.
-
-  -Then `node server`.
-  
-  -Server should run at localhost:3000.
+  1) In project folder run `npm install`.
+  2) Then `node server`.
+  3) Server should run at localhost:3000.
