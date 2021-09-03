@@ -6,5 +6,5 @@
   let price = url.get('totalPrice');
   console.log(price);
   const order = document.getElementById("order");
-  order.textContent = `Votre commande ${orderId}, pour un total de ${price}.00€`;
+  order.textContent = `Votre commande ${orderId}, pour un total de ${price}`;
 })()

@@ -37,7 +37,7 @@ export async function query_item(id) {
   )
 }
 
-export async function send_item(order) { 
+export async function send_item(order, total_price) { 
   console.log("send_item");
   
   return fetch("http://localhost:3000/api/teddies/order", 
@@ -49,11 +49,6 @@ export async function send_item(order) {
     (json) => {
       console.log(json);
       console.log(Object.values(window.localStorage));
-      let total = Object.values(window.localStorage).map((el) => {return JSON.parse(el)}).map((product) => {return product.price / 100});
-      let total_price = 0;
-      total.forEach(el => {
-        total_price += el;
-      });
       window.localStorage.clear();
       window.location.href = `${window.location.origin}/order.html?orderId=${json.orderId}&totalPrice=${total_price}`;
     }

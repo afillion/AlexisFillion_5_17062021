@@ -8,22 +8,60 @@ import { send_item } from './query.js';
     const row = document.createElement("tr");
     const el = JSON.parse(store_tab[i]);
     tbody.appendChild(row);
+
     const td_name = document.createElement("td");
     td_name.textContent = el.name;
     row.appendChild(td_name);
-    const td_price = document.createElement("td");
-    td_price.textContent = el.price / 100 + ".00€";
-    row.appendChild(td_price);
-    total_price += el.price;
+
+    const td_quantity = document.createElement("td");
+    const input_quantity = document.createElement("input");
+    input_quantity.setAttribute("type", "number");
+    input_quantity.value = 1;
+    input_quantity.addEventListener("change", (e) => {
+      if (e.target.value <= 0) {
+        window.localStorage.removeItem(el._id);
+        window.location.reload();
+      }
+      else {
+        td_unit_total_price.textContent = ((el.price * e.target.value) / 100) + ".00€";
+        total_price = get_cart_total_price();
+        document.getElementById("total").textContent = "Prix total : " + total_price + ".00€";
+      }
+    });
+    td_quantity.appendChild(input_quantity);
+    row.appendChild(td_quantity);
+
+    const td_unit_price = document.createElement("td");
+    td_unit_price.textContent = el.price / 100 + ".00€";
+    row.appendChild(td_unit_price);
+
+    const td_unit_total_price = document.createElement("td");
+    td_unit_total_price.setAttribute("class", "unitTotalPrice");
+    td_unit_total_price.textContent = el.price / 100 + ".00€";
+    row.appendChild(td_unit_total_price);
   }
   document.getElementById("clearCart").addEventListener('click', () => {
     window.localStorage.clear();
     window.location.reload();
   });
-  document.getElementById("total").textContent = "Prix total : " + total_price / 100 + ".00€";
+  total_price = get_cart_total_price();
+  document.getElementById("total").textContent = "Prix total : " + total_price + ".00€";
   formListener();
   document.getElementById('form').addEventListener('submit', verify_userInput);
 })()
+
+function get_cart_total_price() {
+  const prices = document.getElementsByClassName("unitTotalPrice");
+  var ret = 0;
+  console.log(prices);
+  for (let i = 0; i < prices.length; i++) {
+    console.log(prices[i].innerHTML);
+    var test = prices[i].innerHTML.split(".");
+    console.log(test);
+    ret += parseInt(test[0], 10);
+  }
+  return ret;
+}
 
 function verify_userInput(e) {
   e.preventDefault();
@@ -54,7 +92,7 @@ function verify_userInput(e) {
       products: products
     }
     console.log(order);
-    send_item(order);
+    send_item(order, document.getElementById("total").textContent);
   }
   else console.log("validator == false");
 }

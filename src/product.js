@@ -45,6 +45,6 @@ function display(item) {
     for (let i = 0; i < Object.keys(window.localStorage).length; i++) {
       console.log(window.localStorage[Object.keys(window.localStorage)[i]]);
     }
-    alert("Votre article \" " + item.name + " \" a été ajouté à votre panier");
+    alert("Votre article \"" + item.name + "\" a été ajouté à votre panier");
   });
 }
