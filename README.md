@@ -2,6 +2,10 @@
 
 Front-End du site de e-commerce Orinoco
 
+### Prerequisites ###
+You will need to have npm installed locally on your machine.
+### Installation ###
+
 1) Cloner le projet : `git clone https://github.com/afillion/AlexisFillion_5_17062021.git orinoco && cd orinoco`
 
 2) Installer les dépendances nécessaire à la bonne éxécution du projet : `npm install`
@@ -11,4 +15,7 @@ Ctrl + clic sur la ligne "Project is running at http://localhost:XXXX" (normalem
 
 4) Cloner le Back-End du site Orinoco : `git clone https://github.com/OpenClassrooms-Student-Center/JWDP5.git backendorinoco && cd backendorinoco`
 
-5) Suiver les instructions du README.md du projet backend.
+5) Suiver les instructions du README.md du projet backend : 
+  -In project folder run `npm install`.
+  -Then `node server`.
+  -Server should run at localhost:3000.
